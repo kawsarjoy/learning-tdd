@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreArticle;
+use App\Model\Article;
 
 class ArticlesApiController extends Controller
 {
@@ -33,9 +35,9 @@ class ArticlesApiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreArticle $request)
     {
-        dd('success');
+        return Article::create($request->all(), 201);
     }
 
     /**
